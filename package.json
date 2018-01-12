@@ -1,0 +1,29 @@
+{
+  "name": "ptm",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/project-scaffold/ptm.git",
+  "author": "Jiangtao <321jiangtao@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "ptm": "dist/ptm"
+  },
+  "scripts": {
+    "ptm": "./node_modules/.bin/babel-node src/ptm",
+    "compile": "./node_modules/.bin/babel src -d dist"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0"
+  },
+  "dependencies": {
+    "download-git-repo": "^1.0.2",
+    "minimist": "^1.2.0",
+    "mz": "^2.7.0",
+    "ora": "^1.3.0",
+    "semver": "^5.4.1"
+  }
+}
