@@ -1,10 +1,10 @@
 import minimist from 'minimist'
 import { alias, versions } from './utils/defs'
-import { checkVersion } from './utils/check'
+import { checkNodeVersion } from './utils/check'
 import need from './utils/betterRequire'
 import { resolve } from 'path'
 
-if(!checkVersion()) {
+if(!checkNodeVersion()) {
 	throw new Error(`Node version is invalid. Please use Node ${versions.nodeEngines} `)
 }
 

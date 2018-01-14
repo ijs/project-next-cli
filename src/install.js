@@ -1,5 +1,5 @@
 import { download, repoList } from './utils/git'
-import { checkVersion } from './utils/check'
+import { checkNodeVersion } from './utils/check'
 import inquirer from 'inquirer'
 
 export default async function apply(repo) {
