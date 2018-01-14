@@ -28,11 +28,8 @@ export default async function apply() {
 	
 	repo = answers.repo
 	
-	
 	loader = loading('tag list fetching', repo)
-	
 	const tags = await tagList(repo)
-
 	loader.succeed()
 	
 	if(tags.length == 0) {

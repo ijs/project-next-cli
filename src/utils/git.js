@@ -23,11 +23,12 @@ export const repoList = async() => {
 				return
 			}
 			const data = JSON.parse(body)
-			if(Array.isArray(data)) {
-				resolve(data)
+			if(data.message === 'Not Found') {
+				reject(new Error(`${url} is not found`))
 			} else {
-				reject(new Error('repoList result is not Array'))
+				resolve(data)
 			}
+			
 		})
 	})
 }
@@ -50,16 +51,18 @@ export const tagList = async(repo) => {
 			}
 			
 			const data = JSON.parse(body)
-			if(Array.isArray(data)) {
-				resolve(data)
+			if(data.message === 'Not Found') {
+				reject(new Error(`${url} is not found`))
 			} else {
-				reject(new Error('tagList result is not Array'))
+				resolve(data)
 			}
-			
 		})
 	})
 }
 
+export const exist = async(repo) => {
+	
+}
 export const download = async(repo) => {
 	const {url, scaffold} = await getGitInfo(repo)
 	

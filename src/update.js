@@ -1,36 +1,63 @@
-import { download, tagList } from './utils/git'
-import { checkRepoVersion } from './utils/check'
-import { dirs } from './utils/defs'
-import { exists } from 'mz/fs'
-import list from './list'
 import inquirer from 'inquirer'
-import rmfr from 'rmfr'
+import { dirs } from './utils/defs'
+import { readdir } from 'mz/fs'
+import { resolve } from 'path'
+import { tagList, download } from './utils/git'
+import copy from './utils/copy'
+import loading from './utils/loading'
 
-export default async function apply(repo) {
-	if(!repo) {
-		throw new Error('repo is empty')
+export default async function apply() {
+	let answers, repo, loader, choices, version
+	
+	const list = await readdir(dirs.download)
+	
+	if(list.length === 0) {
+		throw new Error(`There is no any scaffolds in your local folder ${dirs.download}, install it`)
 	}
 	
-	let scaffold, version
-	
-	// update the known version
-	if(checkRepoVersion(repo)) {
-		[scaffold, version] = repo.split('@')
-		if(version == 'latest') {
-			repo = scaffold
-		} else {
-			repo = [scaffold, version].join('#')
+	answers = await inquirer.prompt([
+		{
+			type: 'list',
+			name: 'scaffold',
+			message: 'which scaffold do you want to update?',
+			choices: list,
+			validate: async function(input) {
+				const done = this.async()
+				
+				if(input.length == 0) {
+					done('You must choice one scaffold to update the version. If not update, Ctrl+C')
+					return
+				}
+				
+				done(null, true)
+			}
 		}
+	])
+	
+	repo = answers.scaffold
+	
+	loader = loading('tag list fetching', repo)
+	const tags = await tagList(repo)
+	loader.succeed()
+	
+	if(tags.length == 0) {
+		version = ''
 	} else {
-		scaffold = repo
+		choices = tags.map(({name}) => name)
+		
+		answers = await inquirer.prompt([
+			{
+				type: 'list',
+				name: 'version',
+				message: 'which version do you want to install?',
+				choices
+			}
+		])
+		version = answers.version
 	}
+
 	
-	const dir = `${dirs.download}/${scaffold}`
-	
-	if(!await exists(dir)) {
-		throw new Error(`${scaffold} is not installed, please install it`)
-	}
-	
-	await download(repo)
-	await list()
+	loader = loading('updating', repo)
+	await download([repo, version].join('@'))
+	loader.succeed()
 }

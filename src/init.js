@@ -7,13 +7,15 @@ import copy from './utils/copy'
 import loading from './utils/loading'
 
 export default async function apply() {
+	let answers
+	
 	const list = await readdir(dirs.download)
 	
 	if(list.length === 0) {
 		throw new Error(`There is no any scaffolds in your local folder ${dirs.download}, install it`)
 	}
 	
-	const answers = await inquirer.prompt([
+	answers = await inquirer.prompt([
 		{
 			type: 'list',
 			name: 'scaffold',
@@ -41,6 +43,7 @@ export default async function apply() {
 			}
 		}
 	])
+	
 	const loader = loading('generating', answers.scaffold)
 	await copy(`${dirs.download}/${answers.scaffold}`, answers.dir)
 	loader.succeed()
