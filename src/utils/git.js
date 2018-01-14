@@ -1,9 +1,10 @@
 import downloadGit from 'download-git-repo'
-import ora from 'ora'
+
 import rc from './rc'
 import { dirs, ua } from './defs'
 import request from 'request'
 import { basename } from 'path'
+
 
 export const repoList = async() => {
 	const type = await rc('type')
@@ -21,7 +22,12 @@ export const repoList = async() => {
 				reject(err)
 				return
 			}
-			resolve(JSON.parse(body))
+			const data = JSON.parse(body)
+			if(Array.isArray(data)) {
+				resolve(data)
+			} else {
+				reject(new Error('repoList result is not Array'))
+			}
 		})
 	})
 }
@@ -42,8 +48,13 @@ export const tagList = async(repo) => {
 				reject(err)
 				return
 			}
-			console.log(body)
-			resolve(body)
+			
+			const data = JSON.parse(body)
+			if(Array.isArray(data)) {
+				resolve(data)
+			} else {
+				reject(new Error('tagList result is not Array'))
+			}
 			
 		})
 	})
@@ -52,17 +63,12 @@ export const tagList = async(repo) => {
 export const download = async(repo) => {
 	const {url, scaffold} = await getGitInfo(repo)
 	
-	const spinner = ora(`download ${repo}`)
-	
-	spinner.start()
-	
 	return new Promise((resolve, reject) => {
 		downloadGit(url, `${dirs.download}/${scaffold}`, err => {
 			if(err) {
 				reject(err)
 				return
 			}
-			spinner.succeed()
 			resolve()
 		})
 	})
@@ -73,7 +79,7 @@ const getGitInfo = async(repo) => {
 	
 	scaffold = basename(scaffold)
 	
-	repo = repo.split('@').join('#')
+	repo = repo.split('@').filter(Boolean).join('#')
 	const registry = await rc('registry')
 	const url = `${registry}/${repo}`
 	return {

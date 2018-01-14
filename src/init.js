@@ -3,7 +3,8 @@ import { dirs } from './utils/defs'
 import { readdir } from 'mz/fs'
 import { resolve } from 'path'
 import { exists } from 'mz/fs'
-import { ncp } from 'ncp'
+import copy from './utils/copy'
+import loading from './utils/loading'
 
 export default async function apply() {
 	const list = await readdir(dirs.download)
@@ -40,19 +41,7 @@ export default async function apply() {
 			}
 		}
 	])
-	
+	const loader = loading('generating', answers.scaffold)
 	await copy(`${dirs.download}/${answers.scaffold}`, answers.dir)
-	console.log('generate successfully')
-}
-
-function copy(src, dest) {
-	return new Promise((resolve, reject) => {
-		ncp(src, dest, function(err) {
-			if(err) {
-				reject(err)
-				return
-			}
-			resolve()
-		})
-	})
+	loader.succeed()
 }
