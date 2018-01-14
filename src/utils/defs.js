@@ -23,5 +23,6 @@ export const versions = {
 export const alias = {
 	i: 'install',
 	uni: 'uninstall',
-	up: 'update'
+	up: 'update',
+	ls: 'list'
 }
