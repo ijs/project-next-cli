@@ -10,3 +10,8 @@ Thanks the listed dependencies:
 - ora
 - semver
 - request
+- rmfr
+
+## TODO
+
+- [ ] support template

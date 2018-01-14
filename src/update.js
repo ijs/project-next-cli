@@ -24,6 +24,8 @@ export default async function apply(repo) {
 		scaffold = repo
 	}
 	
+	// TODO: use dropdown list to choice versions
+	
 	const dir = `${dirs.download}/${scaffold}`
 	
 	if(!await exists(dir)) {
