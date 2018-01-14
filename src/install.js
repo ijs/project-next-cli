@@ -7,7 +7,6 @@ export default async function apply(repo) {
 	if(!repo) {
 		const data = await repoList()
 		const choices = data.map(({name}) => name)
-		
 		const answers = await inquirer.prompt([
 			{
 				type: 'list',
@@ -20,5 +19,6 @@ export default async function apply(repo) {
 		repo = answers.repo
 		
 	}
+	
 	await download(repo)
 }

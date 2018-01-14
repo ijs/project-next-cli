@@ -21,5 +21,7 @@ export const versions = {
 
 
 export const alias = {
-	i: 'install'
+	i: 'install',
+	uni: 'uninstall',
+	up: 'update'
 }
