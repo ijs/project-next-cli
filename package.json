@@ -1,15 +1,15 @@
 {
-  "name": "ptm",
-  "version": "0.0.1",
+  "name": "project-next-cli",
+  "version": "0.1.0",
   "main": "index.js",
-  "repository": "https://github.com/project-scaffold/ptm.git",
+  "repository": "https://github.com/project-scaffold/project-next-cli.git",
   "author": "Jiangtao <321jiangtao@gmail.com>",
   "license": "MIT",
   "bin": {
-    "ptm": "dist/ptm"
+    "project": "bin/project"
   },
   "scripts": {
-    "ptm": "./node_modules/.bin/babel-node src/ptm",
+    "project": "./node_modules/.bin/babel-node src/project",
     "compile": "./node_modules/.bin/babel src -d dist",
     "watch": "npm run compile -- -watch"
   },
@@ -21,6 +21,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0"
   },
   "dependencies": {
+    "commander": "^2.13.0",
     "download-git-repo": "^1.0.2",
     "inquirer": "^5.0.0",
     "minimist": "^1.2.0",
