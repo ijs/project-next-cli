@@ -25,7 +25,7 @@ export default async function apply() {
 			type: 'input',
 			name: 'dir',
 			message: 'project name',
-			validate: async function(input) {
+			async validate(input) {
 				const done = this.async()
 				
 				if(input.length == 0) {

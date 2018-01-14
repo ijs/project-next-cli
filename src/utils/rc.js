@@ -14,7 +14,6 @@ export default async function apply(k, v) {
 		
 		const config = ini.parse(await readFile(dirs.rc, 'utf-8'))
 		return config[k] || defaults[k]
-		
 	} else if(k.length > 0 && v.length > 0) {
 		let config
 		if(!isExist) {
@@ -27,4 +26,3 @@ export default async function apply(k, v) {
 		await writeFile(dirs.rc, ini.stringify(setting))
 	}
 }
-

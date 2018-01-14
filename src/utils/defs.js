@@ -1,8 +1,9 @@
 import { name, version, engines } from '../../package.json'
+
 const home = process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME']
 export const defaults = {
 	registry: 'project-scaffold',
-	type: 'org', // ['org', 'user']
+	type: 'org' // ['org', 'user']
 }
 
 export const ua = `${name}-${version}`
@@ -18,7 +19,6 @@ export const versions = {
 	nodeEngines: engines.node,
 	[name]: version
 }
-
 
 export const alias = {
 	i: 'install',

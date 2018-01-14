@@ -7,6 +7,7 @@ export default async function apply(action, k, v) {
 			break
 		case 'set':
 			await rc(k, v)
+			return true
 			break
 		
 		default:

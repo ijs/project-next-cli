@@ -7,7 +7,11 @@ import copy from './utils/copy'
 import loading from './utils/loading'
 
 export default async function apply() {
-	let answers, repo, loader, choices, version
+	let answers,
+			repo,
+			loader,
+			choices,
+			version
 	
 	const list = await readdir(dirs.download)
 	
@@ -21,7 +25,7 @@ export default async function apply() {
 			name: 'scaffold',
 			message: 'which scaffold do you want to update?',
 			choices: list,
-			validate: async function(input) {
+			async validate(input) {
 				const done = this.async()
 				
 				if(input.length == 0) {
@@ -55,7 +59,6 @@ export default async function apply() {
 		])
 		version = answers.version
 	}
-
 	
 	loader = loading('updating', repo)
 	await download([repo, version].join('@'))

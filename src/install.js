@@ -5,7 +5,10 @@ import inquirer from 'inquirer'
 import loading from './utils/loading'
 
 export default async function apply() {
-	let loader, choices, answers, repo
+	let loader,
+			choices,
+			answers,
+			repo
 	
 	loader = loading('repo list fetching')
 	const repos = await repoList()

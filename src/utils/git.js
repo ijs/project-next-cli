@@ -5,7 +5,6 @@ import { dirs, ua } from './defs'
 import request from 'request'
 import { basename } from 'path'
 
-
 export const repoList = async() => {
 	const type = await rc('type')
 	const api = `https://api.github.com/${type}s/chef-template/repos`
@@ -28,12 +27,11 @@ export const repoList = async() => {
 			} else {
 				resolve(data)
 			}
-			
 		})
 	})
 }
 
-export const tagList = async(repo) => {
+export const tagList = async repo => {
 	const {url, scaffold} = await getGitInfo(repo)
 	const api = `https://api.github.com/repos/${url}/tags`
 	
@@ -60,10 +58,10 @@ export const tagList = async(repo) => {
 	})
 }
 
-export const exist = async(repo) => {
+export const exist = async repo => {
 	
 }
-export const download = async(repo) => {
+export const download = async repo => {
 	const {url, scaffold} = await getGitInfo(repo)
 	
 	return new Promise((resolve, reject) => {
@@ -77,7 +75,7 @@ export const download = async(repo) => {
 	})
 }
 
-const getGitInfo = async(repo) => {
+const getGitInfo = async repo => {
 	let [scaffold] = repo.split('@')
 	
 	scaffold = basename(scaffold)

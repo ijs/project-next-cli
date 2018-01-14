@@ -8,9 +8,8 @@ if(!checkNodeVersion()) {
 	throw new Error(`Node version is invalid. Please use Node ${versions.nodeEngines} `)
 }
 
-const argv = minimist(process.argv.slice(2))
-
-;(async function() {
+const argv = minimist(process.argv.slice(2));
+(async function() {
 	try {
 		let [command, ...args] = argv._
 		if(alias[command]) {
