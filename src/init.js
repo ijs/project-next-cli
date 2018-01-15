@@ -49,7 +49,7 @@ export default async function apply() {
 		}
 	])
 	
-	const loader = loading('generating', answers.scaffold)
+	const loader = loading('generating', answers.dir)
 	await copy(`${dirs.download}/${answers.scaffold}`, answers.dir)
 	loader.succeed()
 }

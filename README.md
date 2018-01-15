@@ -2,6 +2,13 @@
 
 The next project manager command line based on Github API.
 
+## Install
+
+```bash
+yarn globally add project-next-cli
+npm i -g project-next-cli
+```
+
 ## Support
 
 - Flexiable Scaffold
@@ -36,6 +43,7 @@ Thanks the listed dependencies:
 ## TODO
 
 - [ ] support template engine
+- [ ] add tests
 
 ## LICENSE
 
