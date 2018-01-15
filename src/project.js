@@ -32,6 +32,7 @@ try{
 		
 		program.command('update')
 		        .description(`update the installed template in ${dirs.download}`)
+						.alias('up')
 		        .action(function() {
 			project('update')
 		})

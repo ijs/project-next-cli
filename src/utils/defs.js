@@ -1,9 +1,11 @@
 import { name, version, engines } from '../../package.json'
+import os from 'os'
 
 const home = process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME']
 export const defaults = {
 	registry: 'project-scaffold',
-	type: 'org' // ['org', 'user']
+	type: 'org', // ['org', 'user']
+	metalsmith: true
 }
 
 export const ua = `${name}-${version}`
@@ -11,7 +13,9 @@ export const ua = `${name}-${version}`
 export const dirs = {
 	home,
 	download: `${home}/.project`,
-	rc: `${home}/.projectrc`
+	rc: `${home}/.projectrc`,
+	tmp: os.tmpdir(),
+	metalsmith: 'metalsmith'
 }
 
 export const versions = {
