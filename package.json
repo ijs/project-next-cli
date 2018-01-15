@@ -1,6 +1,6 @@
 {
   "name": "project-next-cli",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "index.js",
   "repository": "https://github.com/project-scaffold/project-next-cli.git",
   "author": "Jiangtao <321jiangtao@gmail.com>",
@@ -38,6 +38,6 @@
     "request": "^2.83.0",
     "rmfr": "^1.0.8",
     "semver": "^5.4.1",
-    "swig": "^1.4.2"
+    "swig-templates": "^2.0.2"
   }
 }
