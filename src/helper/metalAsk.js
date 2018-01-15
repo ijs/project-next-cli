@@ -36,7 +36,7 @@ export default function askCreator({template, user, email}) {
 			type: 'input',
 			name: 'author',
 			message: 'author',
-			default: `${user} <${email}>`
+			default: email
 		},
 		{
 			type: 'input',
