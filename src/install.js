@@ -8,7 +8,8 @@ export default async function apply() {
 	let loader,
 			choices,
 			answers,
-			repo
+			repo,
+			version
 	
 	loader = loading('repo list fetching')
 	const repos = await repoList()

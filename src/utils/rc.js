@@ -2,17 +2,34 @@ import { defaults, dirs } from './defs'
 import { readFile, writeFile, exists } from 'mz/fs'
 import ini from 'ini'
 
-export default async function apply(k, v) {
-	if(!k || k.length === 0) {
-		throw new Error('rc k is empty')
-	}
-	
+export default async function apply(k, v, remove) {
+	let config, content, setting
 	const isExist = await exists(dirs.rc)
 	
+	if(!k || k.length === 0) {
+		if(!isExist) {
+			content = ini.stringify(defaults)
+			await writeFile(dirs.rc, content)
+			return content
+		}
+		return await readFile(dirs.rc, 'utf-8')
+	}
+	
+	if(remove) {
+		config = ini.parse(await readFile(dirs.rc, 'utf-8'))
+		if(config[k]){
+			delete config[k]
+			setting = Object.assign({}, config, {[k]: v})
+			await writeFile(dirs.rc, ini.stringify(setting))
+		}
+		return true
+	}
+	
+	
 	if(!v || v.length === 0) {
-		if(!isExist) return
+		if(!isExist) return defaults[k]
 		
-		const config = ini.parse(await readFile(dirs.rc, 'utf-8'))
+		config = ini.parse(await readFile(dirs.rc, 'utf-8'))
 		return config[k] || defaults[k]
 	} else if(k.length > 0 && v.length > 0) {
 		let config
@@ -22,7 +39,7 @@ export default async function apply(k, v) {
 			config = ini.parse(await readFile(dirs.rc, 'utf-8'))
 		}
 		
-		const setting = Object.assign({}, config, {[k]: v})
+		setting = Object.assign({}, config, {[k]: v})
 		await writeFile(dirs.rc, ini.stringify(setting))
 	}
 }

@@ -1,5 +1,11 @@
-# ptm
-project template/scaffold manage cli
+# project next cli
+
+The next project manager command line based on Github API.
+
+## Support
+
+- Flexiable Scaffold
+- Scaffold Manage
 
 ## Dependencies
 
@@ -14,4 +20,8 @@ Thanks the listed dependencies:
 
 ## TODO
 
-- [ ] support template
+- [ ] support template engine
+
+## LICENSE
+
+MIT

@@ -10,8 +10,8 @@ export const ua = `${name}-${version}`
 
 export const dirs = {
 	home,
-	download: `${home}/.${name}`,
-	rc: `${home}/.${name}rc`
+	download: `${home}/.project`,
+	rc: `${home}/.projectrc`
 }
 
 export const versions = {
@@ -24,5 +24,6 @@ export const alias = {
 	i: 'install',
 	uni: 'uninstall',
 	up: 'update',
-	ls: 'list'
+	ls: 'list',
+	h: 'help'
 }

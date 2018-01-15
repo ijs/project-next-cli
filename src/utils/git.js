@@ -7,7 +7,8 @@ import { basename } from 'path'
 
 export const repoList = async() => {
 	const type = await rc('type')
-	const api = `https://api.github.com/${type}s/chef-template/repos`
+	const registry = await rc('registry')
+	const api = `https://api.github.com/${type}s/${registry}/repos`
 	
 	return new Promise((resolve, reject) => {
 		request({
@@ -23,7 +24,7 @@ export const repoList = async() => {
 			}
 			const data = JSON.parse(body)
 			if(data.message === 'Not Found') {
-				reject(new Error(`${url} is not found`))
+				reject(new Error(`${api} is not found`))
 			} else {
 				resolve(data)
 			}

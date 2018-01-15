@@ -9,6 +9,11 @@ import loading from './utils/loading'
 export default async function apply() {
 	let answers
 	
+	
+	if(!await exists(dirs.download)) {
+		throw new Error(`There is no ${dirs.download}, Please install a template`)
+	}
+	
 	const list = await readdir(dirs.download)
 	
 	if(list.length === 0) {
