@@ -72,8 +72,6 @@ try{
 	help()
 }
 
-
-
 function help() {
 	console.log('')
 	console.log('  How to use:')

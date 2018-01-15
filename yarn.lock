@@ -581,6 +581,10 @@ detect-libc@^1.0.2:
   version "1.0.3"
   resolved "https://registry.npmjs.org/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
 
+dom-walk@^0.1.0:
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/dom-walk/-/dom-walk-0.1.1.tgz#672226dc74c8f799ad35307df936aba11acd6018"
+
 download-git-repo@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/download-git-repo/-/download-git-repo-1.0.2.tgz#0b93a62057e41e2f21b1a06c95e7b26362b108ff"
@@ -846,6 +850,13 @@ glob@^7.0.5, glob@^7.1.2:
     minimatch "^3.0.4"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
+
+global@^4.3.2:
+  version "4.3.2"
+  resolved "https://registry.npmjs.org/global/-/global-4.3.2.tgz#e76989268a6c74c38908b1305b10fc0e394e9d0f"
+  dependencies:
+    min-document "^2.19.0"
+    process "~0.5.1"
 
 globals@^9.18.0:
   version "9.18.0"
@@ -1267,6 +1278,12 @@ mimic-fn@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/mimic-fn/-/mimic-fn-1.1.0.tgz#e667783d92e89dbd342818b5230b9d62a672ad18"
 
+min-document@^2.19.0:
+  version "2.19.0"
+  resolved "https://registry.npmjs.org/min-document/-/min-document-2.19.0.tgz#7bd282e3f5842ed295bb748cdd9f1ffa2c824685"
+  dependencies:
+    dom-walk "^0.1.0"
+
 minimatch@^3.0.0, minimatch@^3.0.2, minimatch@^3.0.4:
   version "3.0.4"
   resolved "https://registry.npmjs.org/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
@@ -1477,6 +1494,44 @@ private@^0.1.7:
 process-nextick-args@~1.0.6:
   version "1.0.7"
   resolved "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-1.0.7.tgz#150e20b756590ad3f91093f25a4f2ad8bff30ba3"
+
+process@~0.5.1:
+  version "0.5.2"
+  resolved "https://registry.npmjs.org/process/-/process-0.5.2.tgz#1638d8a8e34c2f440a91db95ab9aeb677fc185cf"
+
+project-next-cli@0.1.3:
+  version "0.1.3"
+  resolved "https://registry.npmjs.org/project-next-cli/-/project-next-cli-0.1.3.tgz#c2a108502d03ba288dd89131933f4468654bd9c3"
+  dependencies:
+    commander "^2.13.0"
+    download-git-repo "^1.0.2"
+    global "^4.3.2"
+    inquirer "^5.0.0"
+    minimist "^1.2.0"
+    mz "^2.7.0"
+    ncp "^2.0.0"
+    ora "^1.3.0"
+    project-next-cli "^0.1.1"
+    request "^2.83.0"
+    rmfr "^1.0.8"
+    semver "^5.4.1"
+
+project-next-cli@^0.1.1:
+  version "0.1.2"
+  resolved "https://registry.npmjs.org/project-next-cli/-/project-next-cli-0.1.2.tgz#3a3054664aa85b6734f9999f77891b86c76daee8"
+  dependencies:
+    commander "^2.13.0"
+    download-git-repo "^1.0.2"
+    global "^4.3.2"
+    inquirer "^5.0.0"
+    minimist "^1.2.0"
+    mz "^2.7.0"
+    ncp "^2.0.0"
+    ora "^1.3.0"
+    project-next-cli "^0.1.1"
+    request "^2.83.0"
+    rmfr "^1.0.8"
+    semver "^5.4.1"
 
 proto-list@~1.2.1:
   version "1.2.4"
