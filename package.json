@@ -1,6 +1,6 @@
 {
   "name": "project-next-cli",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "main": "index.js",
   "repository": "https://github.com/project-scaffold/project-next-cli.git",
   "author": "Jiangtao <321jiangtao@gmail.com>",
@@ -12,19 +12,27 @@
     "project": "./node_modules/.bin/babel-node src/project",
     "compile": "./node_modules/.bin/babel src -d dist",
     "watch": "npm run compile -- -watch",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run lint && npm run compile",
+    "lint": "./node_modules/.bin/eslint  --ext .js src/**/* "
   },
   "engines": {
     "node": ">=6.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0"
+    "babel-eslint": "^8.2.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-html": "^4.0.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-standard": "^3.0.1"
   },
   "dependencies": {
     "commander": "^2.13.0",
     "consolidate": "^0.15.0",
     "download-git-repo": "^1.0.2",
+    "ini": "^1.3.5",
     "inquirer": "^5.0.0",
     "metalsmith": "^2.3.0",
     "minimist": "^1.2.0",
@@ -32,9 +40,13 @@
     "mz": "^2.7.0",
     "ncp": "^2.0.0",
     "ora": "^1.3.0",
+    "precommit-hook": "^3.0.0",
     "request": "^2.83.0",
     "rmfr": "^1.0.8",
     "semver": "^5.4.1",
     "swig-templates": "^2.0.2"
-  }
+  },
+  "pre-commit": [
+    "lint"
+  ]
 }
