@@ -1,18 +1,19 @@
 # project next cli
 
-The next project manager command line based on Github API.
+可能更通用的脚手架，基于 Github API v3 实现
 
-## Install
+## 下载
 
 ```bash
 yarn globally add project-next-cli
 npm i -g project-next-cli
 ```
 
-## Support
+## 支持
 
-- Flexiable Scaffold
-- Scaffold Manage
+- 基于所有的github项目组
+- 支持swig模板编译
+- 提供脚手架管理： 下载，初始化，版本选择等功能
 
 ## How to use
 
@@ -29,9 +30,9 @@ project config help
 
 <img src="./project-next-cli.gif" />
 
-## Dependencies
+## 依赖
 
-Thanks the listed dependencies: 
+依赖列表：
 
 - download-git-repo
 - minimist
@@ -39,11 +40,13 @@ Thanks the listed dependencies:
 - semver
 - request
 - rmfr
+- metalsmith
+- eslint
 
 ## TODO
 
-- [ ] support template engine
-- [ ] add tests
+- [x] 支持模板引擎
+- [ ] 测试用例
 
 ## LICENSE
 
