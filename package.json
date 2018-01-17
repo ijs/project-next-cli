@@ -1,6 +1,6 @@
 {
   "name": "project-next-cli",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "main": "index.js",
   "repository": "https://github.com/project-scaffold/project-next-cli.git",
   "author": "Jiangtao <321jiangtao@gmail.com>",
@@ -13,7 +13,7 @@
     "compile": "./node_modules/.bin/babel src -d dist",
     "watch": "npm run compile -- -watch",
     "prepublish": "npm run lint && npm run compile",
-    "lint": "./node_modules/.bin/eslint  --ext .js src/**/* "
+    "lint": "./node_modules/.bin/eslint src *.js"
   },
   "engines": {
     "node": ">=6.0.0"

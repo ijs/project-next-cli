@@ -1,9 +1,7 @@
 import inquirer from 'inquirer';
 import { readdir } from 'mz/fs';
-import { resolve } from 'path';
 import { dirs } from './utils/defs';
 import { tagList, download } from './utils/git';
-import copy from './utils/copy';
 import loading from './utils/loading';
 
 export default async function apply() {
@@ -27,7 +25,7 @@ export default async function apply() {
       async validate(input) {
         const done = this.async();
 
-        if (input.length == 0) {
+        if (input.length === 0) {
           done('You must choice one scaffold to update the version. If not update, Ctrl+C');
           return;
         }

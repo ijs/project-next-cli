@@ -20,7 +20,7 @@ function help() {
 }
 
 try {
-  (async function() {
+  (async function run() {
     const registry = await rc('registry');
     program.version(version)
 		        .usage('<command> [options]');
@@ -32,11 +32,11 @@ try {
         await project('install');
       });
 
-    program.command('uninstall <repo>')
-		        .description(`uninstall installed templates in ${dirs.download}`)
+    program.command('uninstall')
+		        .description(`uninstall a installed template in ${dirs.download}`)
 		        .alias('uni')
 		        .action(async repo => {
-        await project('uninstall', repo);
+        await project('uninstall');
       });
 
     program.command('init')
@@ -44,6 +44,12 @@ try {
 		        .action(async() => {
         await project('init');
       });
+	
+	  program.command('clear')
+	          .description('clear all installed template')
+	          .action(async() => {
+		  await project('clear');
+	  });
 
     program.command('update')
 		        .description(`update the installed template in ${dirs.download}`)

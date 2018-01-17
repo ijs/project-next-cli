@@ -1,6 +1,6 @@
 # project next cli
 
-可能更通用的脚手架，基于 Github API v3 实现
+可能更通用的脚手架，基于 Github API v3 实现. 基于团队的 [chef-cli](https://github.com/2046/chef-cli) 增强。
 
 ## 下载
 
@@ -11,9 +11,14 @@ npm i -g project-next-cli
 
 ## 支持
 
-- 基于所有的github项目组
-- 支持swig模板编译
 - 提供脚手架管理： 下载，初始化，版本选择等功能
+- 基于所有的github项目组
+- 增强：改变输入方式为选择，改进体验
+- 增强：支持swig模板编译
+
+## 文件说明
+
+
 
 ## How to use
 

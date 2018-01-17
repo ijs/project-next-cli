@@ -1,6 +1,5 @@
 import inquirer from 'inquirer';
 import { download, repoList, tagList } from './utils/git';
-import { checkRepoVersion } from './utils/check';
 import { rc } from './utils/defs';
 import loading from './utils/loading';
 
@@ -35,7 +34,7 @@ export default async function apply() {
   const tags = await tagList(repo);
   loader.succeed();
 
-  if (tags.length == 0) {
+  if (tags.length === 0) {
     version = '';
   } else {
     choices = tags.map(({ name }) => name);
@@ -53,5 +52,5 @@ export default async function apply() {
 
   loader = loading('downloading', repo);
   await download([repo, version].join('@'));
-  loader.succeed();
+  loader.succeed(`downloaded ${repo}`);
 }

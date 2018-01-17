@@ -33,7 +33,7 @@ export default async function apply() {
       async validate(input) {
         const done = this.async();
 
-        if (input.length == 0) {
+        if (input.length === 0) {
           done('You must input project name');
           return;
         }
@@ -66,5 +66,5 @@ export default async function apply() {
     loader = loading('generating', answers.dir);
     await copy(`${dirs.download}/${answers.scaffold}`, answers.dir);
   }
-  loader.succeed();
+  loader.succeed(`generated ${answers.dir}`);
 }
