@@ -9,6 +9,7 @@ import copy from './utils/copy';
 import loading from './utils/loading';
 import metal from './helper/metalsimth';
 
+
 export default async function apply() {
   if (!await exists(dirs.download)) {
     throw new Error(`There is no ${dirs.download}, Please install a template`);
