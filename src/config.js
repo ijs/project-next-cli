@@ -3,7 +3,8 @@ import rc from './utils/rc';
 export default async function apply(action, k, v) {
   switch (action) {
   case 'get':
-    console.log(typeof await rc(k));
+    console.log(await rc(k));
+    console.log('');
     return true;
     break;
   case 'set':

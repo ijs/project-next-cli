@@ -23,7 +23,7 @@ try {
   (async function run() {
     const registry = await rc('registry');
     program.version(version)
-		        .usage('<command> [options]');
+      .usage('<command> [options]');
 
     program.command('install')
 		        .description(`install remote templates from https://github.com/${registry}`)
@@ -35,7 +35,7 @@ try {
     program.command('uninstall')
 		        .description(`uninstall a installed template in ${dirs.download}`)
 		        .alias('uni')
-		        .action(async repo => {
+		        .action(async() => {
         await project('uninstall');
       });
 
@@ -54,16 +54,24 @@ try {
     program.command('update')
 		        .description(`update the installed template in ${dirs.download}`)
       .alias('up')
-		        .action(() => {
-        project('update');
+		        .action(async() => {
+        await project('update');
       });
 
     program.command('list')
 		        .alias('ls')
 		        .description('list installed template')
-		        .action(() => {
-        project('list');
+		        .action(async() => {
+		    await project('list');
       });
+	
+	
+	  program.command('search')
+	          .alias('s')
+	          .description('search the templates from your github organization/user')
+	          .action(async() => {
+	          	await project('search');
+	  });
 
 
     program.command('config')
@@ -84,7 +92,7 @@ try {
     program.command('*')
 		        .description('The command is not found')
 		        .action(help);
-
+	  
     program.parse(process.argv);
   })();
 } catch (e) {
