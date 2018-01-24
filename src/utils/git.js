@@ -18,7 +18,7 @@ function fetch(api) {
         reject(err);
         return;
       }
-			
+
       const data = JSON.parse(body);
       if (data.message === 'Not Found') {
         reject(new Error(`${api} is not found`));
@@ -29,7 +29,7 @@ function fetch(api) {
   });
 }
 
-const getGitInfo = async repo => {
+const getGitInfo = async (repo) => {
   let template = repo;
   let [scaffold] = template.split('@');
 
@@ -44,11 +44,11 @@ const getGitInfo = async repo => {
   };
 };
 
-export const searchList = async() => {
+export const searchList = async () => {
   const type = await rc('type');
   const registry = await rc('registry');
   let api;
-  
+
   if (type === 'user') {
     api = `https://api.github.com/users/${registry}/repos?per_page=100&page=1`;
   } else if (type === 'org') {
@@ -56,11 +56,11 @@ export const searchList = async() => {
   } else {
     throw new Error('Type muse be user or org');
   }
-	
+
   return await fetch(api);
 };
 
-export const repoList = async() => {
+export const repoList = async () => {
   const type = await rc('type');
   const registry = await rc('registry');
   const api = `https://api.github.com/${type}s/${registry}/repos`;
@@ -68,7 +68,7 @@ export const repoList = async() => {
   return await fetch(api);
 };
 
-export const tagList = async repo => {
+export const tagList = async (repo) => {
   const { url, scaffold } = await getGitInfo(repo);
   const api = `https://api.github.com/repos/${url}/tags`;
 
@@ -76,11 +76,11 @@ export const tagList = async repo => {
 };
 
 
-export const download = async repo => {
+export const download = async (repo) => {
   const { url, scaffold } = await getGitInfo(repo);
 
   return new Promise((resolve, reject) => {
-    downloadGit(url, `${dirs.download}/${scaffold}`, err => {
+    downloadGit(url, `${dirs.download}/${scaffold}`, (err) => {
       if (err) {
         reject(err);
         return;

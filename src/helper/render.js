@@ -2,10 +2,10 @@ import consolidate from 'consolidate';
 
 const renderContent = consolidate.swig.render;
 
-export default function render(list) {
+export default function render() {
   return function _render(files, metalsmith, next) {
     const meta = metalsmith.metadata();
-    
+
     /* eslint-disable */
     
     Object.keys(files).forEach(function(){

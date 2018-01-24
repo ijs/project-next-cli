@@ -41,7 +41,6 @@ export default async function apply(k, v, remove) {
 
     return emptyValues[config[k]] ? defaults[k] : config[k];
   } else if (k.length > 0 && v.length > 0) {
-    let config;
     if (!isExist) {
       config = {};
     } else {

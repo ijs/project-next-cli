@@ -1,7 +1,7 @@
 import Metalsmith from 'metalsmith';
 import inquirer from 'inquirer';
-import { exists } from 'mz/fs';
 import mkdirp from 'mkdirp';
+import { exists } from 'mz/fs';
 import { execSync } from 'child_process';
 import { dirs } from '../utils/defs';
 import ask from './metalAsk';
@@ -31,7 +31,7 @@ export default async function apply(template) {
       .destination(tmpBuildDir)
       .clean(false)
       .use(render())
-      .build(err => {
+      .build((err) => {
         if (err) {
           reject(err);
           return;

@@ -29,55 +29,55 @@ try {
     program.command('install')
 		        .description(`install remote templates from https://github.com/${registry}`)
 		        .alias('i')
-		        .action(async() => {
+		        .action(async () => {
         await project('install');
       });
 
     program.command('uninstall')
 		        .description(`uninstall a installed template in ${dirs.download}`)
 		        .alias('uni')
-		        .action(async() => {
+		        .action(async () => {
         await project('uninstall');
       });
 
     program.command('init')
 		        .description('generate a new project from a template')
-		        .action(async() => {
+		        .action(async () => {
         await project('init');
       });
-	
+
 	  program.command('clear')
 	          .description('clear all installed template')
-	          .action(async() => {
+	          .action(async () => {
 		  await project('clear');
 	  });
 
     program.command('update')
 		        .description(`update the installed template in ${dirs.download}`)
       .alias('up')
-		        .action(async() => {
+		        .action(async () => {
         await project('update');
       });
 
     program.command('list')
 		        .alias('ls')
 		        .description('list installed template')
-		        .action(async() => {
+		        .action(async () => {
 		    await project('list');
       });
-	
-	
+
+
 	  program.command('search')
 	          .alias('s')
 	          .description('search the templates from your github organization/user')
-	          .action(async() => {
+	          .action(async () => {
 	          	await project('search');
 	  });
 
 
     program.command('config')
 		        .description(`${dirs.rc} config file set and get`)
-		        .action(async() => {
+		        .action(async () => {
         const argv = process.argv.slice(3);
         await project('config', ...argv);
       });
@@ -93,9 +93,9 @@ try {
     program.command('*')
 		        .description('The command is not found')
 		        .action(help);
-	  
+
     program.parse(process.argv);
-  })();
+  }());
 } catch (e) {
   console.log(e);
 
