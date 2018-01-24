@@ -17,8 +17,8 @@ export default async function apply() {
 	
   const answers = await inquirer.prompt([
     {
-      type: 'confirm',
-      name: 'confirm',
+      type   : 'confirm',
+      name   : 'confirm',
       message: 'Do you want to remove all installed scaffolds?',
       choices: list
     }

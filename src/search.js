@@ -5,8 +5,8 @@ import loading from './utils/loading';
 export default async function search() {
   const answers = await inquirer.prompt([
     {
-      type: 'input',
-      name: 'search',
+      type   : 'input',
+      name   : 'search',
       message: 'search repo'
     }
   ]);

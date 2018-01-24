@@ -26,6 +26,7 @@ npm i -g project-next-cli
 project install
 project init
 project update
+project search
 project uninstall <installed template>
 project config set <k> <v>
 project config remove <k>

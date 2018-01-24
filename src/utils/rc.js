@@ -4,8 +4,8 @@ import { defaults, dirs } from './defs';
 
 const emptyValues = {
   undefined: true,
-  null: true,
-  0: true
+  null     : true,
+  0        : true
 };
 
 export default async function apply(k, v, remove) {

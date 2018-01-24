@@ -11,6 +11,7 @@ function help() {
   console.log('    $ project install');
   console.log('    $ project init');
   console.log('    $ project update');
+  console.log('    $ project search');
   console.log('    $ project uninstall <installed template>');
   console.log('    $ project config set <k> <v>');
   console.log('    $ project config remove <k>');

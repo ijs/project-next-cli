@@ -1,7 +1,6 @@
 import inquirer from 'inquirer';
-import { readdir, exists } from 'mz/fs';
 import rmfr from 'rmfr';
-
+import { readdir, exists } from 'mz/fs';
 import { resolve } from 'path';
 import { dirs } from './utils/defs';
 import rc from './utils/rc';
@@ -23,13 +22,13 @@ export default async function apply() {
 
   const answers = await inquirer.prompt([
     {
-      type: 'list',
-      name: 'scaffold',
+      type   : 'list',
+      name   : 'scaffold',
       message: 'which scaffold do you want to init?',
       choices: list
     }, {
-      type: 'input',
-      name: 'dir',
+      type   : 'input',
+      name   : 'dir',
       message: 'project name',
       async validate(input) {
         const done = this.async();

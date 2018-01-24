@@ -18,8 +18,8 @@ export default async function apply() {
 
   answers = await inquirer.prompt([
     {
-      type: 'list',
-      name: 'scaffold',
+      type   : 'list',
+      name   : 'scaffold',
       message: 'which scaffold do you want to update?',
       choices: list,
       async validate(input) {
@@ -48,8 +48,8 @@ export default async function apply() {
 
     answers = await inquirer.prompt([
       {
-        type: 'list',
-        name: 'version',
+        type   : 'list',
+        name   : 'version',
         message: 'which version do you want to install?',
         choices
       }

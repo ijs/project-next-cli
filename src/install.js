@@ -21,8 +21,8 @@ export default async function apply() {
   choices = repos.map(({ name }) => name);
   answers = await inquirer.prompt([
     {
-      type: 'list',
-      name: 'repo',
+      type   : 'list',
+      name   : 'repo',
       message: 'which repo do you want to install?',
       choices
     }
@@ -41,8 +41,8 @@ export default async function apply() {
 
     answers = await inquirer.prompt([
       {
-        type: 'list',
-        name: 'version',
+        type   : 'list',
+        name   : 'version',
         message: 'which version do you want to install?',
         choices
       }

@@ -100,7 +100,10 @@
       2,
       {
         "beforeColon": false,
-        "afterColon": true
+        "afterColon": true,
+        "align": {
+          "on": "colon"   
+        }
       }
     ],
     "new-cap": [
@@ -162,7 +165,7 @@
     "no-tabs":0,
     "consistent-return":0,
     "no-mixed-spaces-and-tabs": 0,
-    "no-multi-spaces": 2,
+    "no-multi-spaces":2,
     "no-multi-str": 2,
     "no-multiple-empty-lines": [
       2,

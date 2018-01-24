@@ -17,8 +17,8 @@ export default async function apply(scaffold) {
 	
   const answers = await inquirer.prompt([
     {
-      type: 'list',
-      name: 'scaffold',
+      type   : 'list',
+      name   : 'scaffold',
       message: 'which scaffold do you want to uninstall it ?',
       choices: list
     }

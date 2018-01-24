@@ -8,8 +8,8 @@ import { dirs, ua } from './defs';
 function fetch(api) {
   return new Promise((resolve, reject) => {
     request({
-      url: api,
-      method: 'GET',
+      url    : api,
+      method : 'GET',
       headers: {
         'User-Agent': `${ua}`
       }
@@ -44,7 +44,7 @@ const getGitInfo = async repo => {
   };
 };
 
-export const searchList = async () => {
+export const searchList = async() => {
   const type = await rc('type');
   const registry = await rc('registry');
   let api;
