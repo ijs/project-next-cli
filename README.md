@@ -18,7 +18,31 @@ npm i -g project-next-cli
 
 ## 文件说明
 
+src目录下每个文件对应一个功能，project.js是入口文件，index.js是统一入口，其他*.js文件为对应的命令文件。
+utils 为基础库目录， helper 为 模板引擎编译帮助文件目录
 
+```bash
+├── LICENSE
+├── README.md
+├── bin
+│   └── project
+├── package.json
+├── project-next-cli.gif
+├── src
+│   ├── clear.js
+│   ├── config.js
+│   ├── helper
+│   ├── index.js
+│   ├── init.js
+│   ├── install.js
+│   ├── list.js
+│   ├── project.js
+│   ├── search.js
+│   ├── uninstall.js
+│   ├── update.js
+│   └── utils
+└── yarn.lock
+```
 
 ## How to use
 
