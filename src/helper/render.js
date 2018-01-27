@@ -8,7 +8,7 @@ export default function render() {
 
     /* eslint-disable */
     
-    Object.keys(files).forEach(function(){
+    Object.keys(files).forEach(function(file){
       const str = files[file].contents.toString();
 
       renderContent(str, meta, (err, res) => {
