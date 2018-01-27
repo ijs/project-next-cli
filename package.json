@@ -1,6 +1,6 @@
 {
   "name": "project-next-cli",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "main": "index.js",
   "repository": "https://github.com/project-scaffold/project-next-cli.git",
   "author": "Jiangtao <321jiangtao@gmail.com>",
