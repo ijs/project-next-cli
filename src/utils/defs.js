@@ -15,7 +15,8 @@ export const dirs = {
   download  : `${home}/.project`,
   rc        : `${home}/.projectrc`,
   tmp       : os.tmpdir(),
-  metalsmith: 'metalsmith'
+  metalsmith: 'metalsmith',
+  interface : 'interface'
 };
 
 export const versions = {
@@ -25,9 +26,12 @@ export const versions = {
 };
 
 export const alias = {
-  i  : 'install',
-  uni: 'uninstall',
-  up : 'update',
-  ls : 'list',
-  h  : 'help'
+  install  : 'i',
+  uninstall: 'uni',
+  update   : 'up',
+  list     : 'ls',
+  help     : 'h',
+  init     : 'g',
+  config   : 'c',
+  search   : 's'
 };

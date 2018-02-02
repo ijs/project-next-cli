@@ -9,9 +9,9 @@
   "extends": "airbnb-base/legacy",
   "rules": {
       "consistent-return": 1,
-      "prefer-destructuring": 1,
+      "prefer-destructuring": 0,
       "no-mixed-spaces-and-tabs": 0,
-      "no-console": 1,
+      "no-console": 0,
       "no-tabs": 0,
       "one-var":0,
       "no-unused-vars": 2,
