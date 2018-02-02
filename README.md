@@ -4,7 +4,7 @@
 
 ## 背景和实现细节
 
-- (搭建一个通用的脚手架)[https://github.com/jiangtao/blog/issues/23]
+- [搭建一个通用的脚手架](https://github.com/jiangtao/blog/issues/23)
 
 ## 下载
 
