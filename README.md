@@ -2,6 +2,10 @@
 
 可能更通用的脚手架，基于 Github API v3 实现. 基于团队的 [chef-cli](https://github.com/2046/chef-cli) 增强。
 
+## 背景和实现细节
+
+- (搭建一个通用的脚手架)[https://github.com/jiangtao/blog/issues/23]
+
 ## 下载
 
 ```bash
