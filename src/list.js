@@ -1,5 +1,5 @@
 import { readdir, exists } from 'mz/fs';
-import betterRequire from './utils/betterRequire';
+import { betterRequire } from './utils/common';
 import { dirs } from './utils/defs';
 
 export default async function apply() {

@@ -45,8 +45,7 @@ const getGitInfo = async (repo) => {
 };
 
 export const searchList = async () => {
-  const type = await rc('type');
-  const registry = await rc('registry');
+  const { type, registry } = await rc();
   let api;
 
   if (type === 'user') {
@@ -61,8 +60,7 @@ export const searchList = async () => {
 };
 
 export const repoList = async () => {
-  const type = await rc('type');
-  const registry = await rc('registry');
+  const { type, registry } = await rc();
   const api = `https://api.github.com/${type}s/${registry}/repos`;
 
   return await fetch(api);

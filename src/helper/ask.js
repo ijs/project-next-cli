@@ -1,4 +1,12 @@
-export default function askCreator({ template, user, email }) {
+import { execSync } from 'child_process';
+
+export default function askCreator(template = '') {
+  let user = execSync('git config --global user.name', { encoding: 'utf-8' });
+  let email = execSync('git config --global user.email', { encoding: 'utf-8' });
+
+  user = user.trim();
+  email = email.trim();
+
   return [
     {
       type   : 'confirm',

@@ -20,7 +20,7 @@ export default async function apply(k, v, remove) {
       await writeFile(dirs.rc, content);
       return content;
     }
-    return await readFile(dirs.rc, 'utf-8');
+    return ini.parse(await readFile(dirs.rc, 'utf-8'));
   }
 
   if (remove) {
