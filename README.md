@@ -19,6 +19,19 @@ npm i -g project-next-cli
 - 基于所有的github项目组
 - 增强：改变输入方式为选择，改进体验
 - 增强：支持swig模板编译
+- 提供interfaces接口，开发者可自定义生成的项目的选项，提供生成成功后的钩子，[点击查看实例](https://github.com/project-scaffold/cli)
+
+## 关于interface
+
+interfaces接口目录下可放置 ask.js， hook.js， 方便扩展
+
+1. ask.js 
+
+遵循 [Inquirer prompt参数](https://github.com/SBoudrias/Inquirer.js#prompt)
+
+2. hook.js 
+
+目前只提供生成成功后方法也就是after，提供给开发者作扩展用。after函数，可以是async function, 返回Promise实例的函数，普通函数。
 
 
 ## How to use
@@ -79,7 +92,7 @@ utils 为基础库目录， helper 为 模板引擎编译帮助文件目录
 ## TODO
 
 - [x] 支持模板引擎
-- [ ] 支持外部interface，可以自定义问答输入，自定义完成后后续操作
+- [x] 支持外部interface，可以自定义问答输入，自定义完成后后续操作
 - [ ] 测试用例
 
 ## LICENSE
