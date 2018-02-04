@@ -27,7 +27,7 @@ interfaces接口目录下可放置 ask.js， hook.js， 方便扩展
 
 1. ask.js 
 
-遵循 [Inquirer prompt参数](https://github.com/SBoudrias/Inquirer.js#prompt)
+可以是数组， 可以是一个返回数组的方法；遵循 [Inquirer prompt参数](https://github.com/SBoudrias/Inquirer.js#prompt)
 
 2. hook.js 
 
