@@ -21,9 +21,9 @@ npm i -g project-next-cli
 - 增强：支持swig模板编译
 - 提供interfaces接口，开发者可自定义生成的项目的选项，提供生成成功后的钩子，[点击查看实例](https://github.com/project-scaffold/cli)
 
-## 关于interface
+## 关于interfaces
 
-interfaces接口目录下可放置 ask.js， hook.js， 方便扩展
+远程仓库增加interfaces接口目录，其中放置 ask.js， hook.js， 方便扩展，若没有则使用内置的ask
 
 1. ask.js 
 
