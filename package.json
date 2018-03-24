@@ -1,6 +1,6 @@
 {
   "name": "project-next-cli",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "main": "index.js",
   "repository": "https://github.com/project-scaffold/project-next-cli.git",
   "author": "Jiangtao <321jiangtao@gmail.com>",
@@ -13,7 +13,8 @@
     "compile": "./node_modules/.bin/babel src -d dist",
     "watch": "npm run compile -- -watch",
     "prepublish": "npm run lint && npm run compile",
-    "lint": "./node_modules/.bin/eslint src *.js"
+    "lint": "./node_modules/.bin/eslint src *.js",
+    "validate": "npm ls"
   },
   "engines": {
     "node": ">=6.0.0"
@@ -23,6 +24,7 @@
     "babel-eslint": "^8.2.1",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "eslint": "^4.15.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-html": "^4.0.1",
