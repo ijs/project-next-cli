@@ -51,7 +51,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint",
-      "post-commit": "npm run commitlint"
+      "commit-msg": "npm run commitlint"
     }
   }
 }
