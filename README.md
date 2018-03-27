@@ -88,6 +88,8 @@ utils 为基础库目录， helper 为 模板引擎编译帮助文件目录
 - [rmfr](https://github.com/shinnn/rmfr)
 - [metalsmith](https://github.com/segmentio/metalsmith)
 - [eslint](https://github.com/eslint/eslint)
+- [commitlint](https://github.com/marionebl/commitlint/)
+- [husky](https://github.com/typicode/husky)
 
 ## TODO
 

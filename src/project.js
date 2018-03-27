@@ -57,7 +57,7 @@ try {
       config   : `${dirs.rc} config file set and get`,
       '*'      : 'The command is not found'
     };
-    program.version(version)
+    program.version(version, '-v, --version')
       .usage('<command> [options]');
 
     Object.keys(programTypes)

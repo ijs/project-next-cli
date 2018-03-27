@@ -11,14 +11,17 @@ import metal from './helper/metal';
 
 
 export default async function apply() {
-  if (!await exists(dirs.download)) {
-    throw new Error(`There is no ${dirs.download}, Please install a template`);
+  const download = dirs.download;
+  const root = process.cwd();
+
+  if (!await exists(download)) {
+    throw new Error(`There is no ${download}, Please install a template`);
   }
 
-  const list = await readdir(dirs.download);
+  const list = await readdir(download);
 
   if (list.length === 0) {
-    throw new Error(`There is no any scaffolds in your local folder ${dirs.download}, install it`);
+    throw new Error(`There is no any scaffolds in your local folder ${download}, install it`);
   }
 
   const answers = await inquirer.prompt([
@@ -39,7 +42,8 @@ export default async function apply() {
           return;
         }
 
-        const dir = resolve(process.cwd(), input);
+
+        const dir = resolve(root, input);
 
         if (await exists(dir)) {
           done('The project name is already existed. Please change another name');
@@ -54,42 +58,43 @@ export default async function apply() {
     ask,
     hook,
     reply;
-  const metalsmith = await rc('metalsmith');
-  if (metalsmith) {
-    const tmp = `${dirs.tmp}/${answers.scaffold}`;
-    // copy the scaffold to temp dir
-    await copy(`${dirs.download}/${answers.scaffold}`, tmp);
 
+  const metalsmith = await rc('metalsmith');
+  const scaffold = answers.scaffold;
+  const dir = answers.dir;
+
+  if (metalsmith) {
     // if set the interface/ask.js from scaffold, use it
     // else use default ./helper/metalAsk.js
     try {
-      ask = betterRequire(`${tmp}/${interfaces.ask}`);
+      ask = betterRequire(`${download}/${interfaces.ask}`);
     } catch (e) {
       ask = betterRequire(resolve(__dirname, './helper/ask.js'));
     }
 
     if (typeof ask === 'function') {
-      ask = ask(answers.scaffold);
+      ask = ask(scaffold);
     }
 
     if (!Array.isArray(ask)) {
-      throw new Error(`Please ensure your ${answers.scaffold} ${interfaces.ask} is exported with Array or function that was returned an array`);
+      throw new Error(`Please ensure your ${scaffold} ${interfaces.ask} is exported with Array or function that was returned an array`);
     }
 
     reply = await inquirer.prompt(ask);
-    await metal(answers.scaffold, reply);
-
-    loader = loading('generating', answers.dir);
-
-    await copy(`${tmp}/${dirs.metalsmith}`, answers.dir);
-    await rmfr(tmp);
-    await rmfr(`${answers.dir}/${interfaces.dir}`);
-    loader.succeed(`generated ${answers.dir}`);
+    loader = loading('generating', dir);
+    console.log(resolve(download, scaffold));
+    await metal(
+      resolve(download, scaffold),
+      resolve(root, dir),
+      reply
+    );
+    await rmfr(`${resolve(root, dir, interfaces.dir)}`);
+    loader.succeed(`generated ${dir}`);
 
     // support hook function after for developer
 
     try {
-      hook = betterRequire(`${dirs.download}/${answers.scaffold}/${interfaces.hook}`);
+      hook = betterRequire(`${download}/${scaffold}/${interfaces.hook}`);
     } catch (e) {
       hook = { after() {} };
     }
@@ -98,17 +103,17 @@ export default async function apply() {
 
     try {
       const meta = Object.assign({
-        dir     : `${process.cwd()}/${answers.dir}`,
-        scaffold: answers.scaffold
+        dir: `${root}/${dir}`,
+        scaffold
       }, reply);
       await hook.after(meta, { runBash, loader, inquirer });
     } catch (e) {
       throw e;
     }
   } else {
-    loader = loading('generating', answers.dir);
-    await copy(`${dirs.download}/${answers.scaffold}`, answers.dir);
-    loader.succeed(`generated ${answers.dir}`);
+    loader = loading('generating', dir);
+    await copy(`${download}/${scaffold}`, dir);
+    loader.succeed(`generated ${dir}`);
   }
 }
 
