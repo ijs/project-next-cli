@@ -1,4 +1,4 @@
-# project next cli
+# project next cli [![](https://badge.juejin.im/entry/594dcad5fe88c2005f807d6a/likes.svg?style=flat-square)](https://juejin.im/entry/594dcad5fe88c2005f807d6a/detail)
 
 可能更通用的脚手架，基于 Github API v3 实现. 基于团队的 [chef-cli](https://github.com/2046/chef-cli) 增强。
 
